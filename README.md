@@ -1,5 +1,5 @@
 ## 使い方
-1.
+#### 1.
 ホームティレクトリ下にdotfilesをclone
-2.
+#### 2.
 > $ dotfiles/dotfilesLink.sh
