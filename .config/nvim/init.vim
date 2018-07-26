@@ -63,11 +63,10 @@ nnoremap <C-n> :bn<CR>
 "nnoremap <C-S-N> :tn<CR>
 
 " インサートモードでescキーを押すとIMEをOFFにする
-
-function! ImInActivate()
-  call system('fcitx-remote -c')
-endfunction
-inoremap <silent> <C-[> <ESC>:call ImInActivate()<CR>
+" function! ImInActivate()
+" call system('fcitx-remote -c')
+" endfunction
+"inoremap <silent> <C-[> <ESC>:call ImInActivate()<CR>
 " }}}
 " dein settings {{{
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
