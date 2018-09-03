@@ -30,5 +30,5 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 
 # dcoker-compose
-alias fig='docker-compose'
+alias fig='sudo docker-compose'
 

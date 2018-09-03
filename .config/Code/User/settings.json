@@ -5,4 +5,5 @@
     "window.zoomLevel": 1,
     "workbench.editor.closeEmptyGroups": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
+    "tslint.autoFixOnSave": true
 }
