@@ -1,9 +1,15 @@
 {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.tabSize": 2,
-    "window.zoomLevel": 1,
-    "workbench.editor.closeEmptyGroups": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "tslint.autoFixOnSave": true
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.tabSize": 2,
+  "window.zoomLevel": 1,
+  "workbench.editor.closeEmptyGroups": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "tslint.autoFixOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "vim.useSystemClipboard": true,
+  "vim.easymotion": true,
+  "vim.hlsearch": false,
+  "vim.visualstar": true
 }

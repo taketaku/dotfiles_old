@@ -1,0 +1,96 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "ctrl+a",
+    "command": "-list.selectAll",
+    "when": "listFocus && listSupportsMultiselect && !inputFocus"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "-editor.action.selectAll",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+a",
+    "command": "-editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "extension.vim_ctrl+w",
+    "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-extension.vim_ctrl+w",
+    "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "-cursorWordEndRightSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "-cursorWordEndRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "-cursorWordStartLeftSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+left",
+    "command": "-cursorWordStartLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+pagedown",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "ctrl+pageup",
+    "command": "-workbench.action.previousEditor"
+  },
+  {
+    "key": "ctrl+pageup",
+    "command": "selectPrevPageSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+pageup",
+    "command": "-selectPrevPageSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+pagedown",
+    "command": "selectNextPageSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+pagedown",
+    "command": "-selectNextPageSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+pageup",
+    "command": "extension.vim_ctrl+pageup",
+    "when": "editorTextFocus && vim.active && vim.use<C-pageup> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+pageup",
+    "command": "-extension.vim_ctrl+pageup",
+    "when": "editorTextFocus && vim.active && vim.use<C-pageup> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+pagedown",
+    "command": "extension.vim_ctrl+pagedown",
+    "when": "editorTextFocus && vim.active && vim.use<C-pagedown> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+pagedown",
+    "command": "-extension.vim_ctrl+pagedown",
+    "when": "editorTextFocus && vim.active && vim.use<C-pagedown> && !inDebugRepl"
+  }
+]
