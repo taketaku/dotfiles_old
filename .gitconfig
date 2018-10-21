@@ -6,3 +6,5 @@
   co = checkout
   br = branch
   ci = commit -a -v
+[core]
+	editor = nvim

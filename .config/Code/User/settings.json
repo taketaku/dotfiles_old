@@ -1,6 +1,5 @@
 {
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
   "editor.tabSize": 2,
   "window.zoomLevel": 1,
   "workbench.editor.closeEmptyGroups": false,
