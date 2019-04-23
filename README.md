@@ -2,4 +2,4 @@
 #### 1.
 ホームティレクトリ下にdotfilesをclone
 #### 2.
-> $ dotfiles/dotfilesLink.sh
+> $ dotfiles/settings/dotfilesLink.sh
