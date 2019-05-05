@@ -1,0 +1,9 @@
+- name: Install Mac Vim
+  homebrew: name=macvim state=present
+  when: vim_install_macvim
+
+- name: Install NeoVim
+  homebrew: name=neovim state=present
+
+- name: Install ctags
+  homebrew: name=neovim state=present

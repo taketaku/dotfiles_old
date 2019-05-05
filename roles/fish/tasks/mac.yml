@@ -1,0 +1,36 @@
+---
+- name: Make sure fish is installed
+  homebrew: name=fish state=present
+
+- name: Add fish to /etc/shells
+  lineinfile:
+    line: /usr/local/bin/fish
+    dest: /etc/shells
+    state: present
+  register: fish_shells
+  become: true
+  become_method: sudo
+
+- name: Change default shell to fish
+  command: chsh -s /usr/local/bin/fish
+  # Only run this if above task was changed
+  when: fish_shells.changed
+
+- name: make the fisherman directory
+  file:
+    path="{{ dotfiles_home }}/roles/fish/files/fish/functions"
+    state=directory
+    mode=0755
+    recurse=yes
+
+- name: install fisherman
+  get_url:
+    url="{{ item.url }}"
+    dest="{{ item.dest }}"
+  with_items:
+    - {url: "https://git.io/fisherman", dest: "{{ dotfiles_home }}/roles/fish/files/fish/functions/fisher.fish"}
+    - {url: "https://git.io/snippet", dest: "{{ dotfiles_home }}/roles/fish/files/fish/config.fish"}
+
+# Bass makes it easy to use utilities written for Bash in fish shell.
+- name: install bass
+  command: fish -c 'fisher eds/bass paths'

@@ -1,0 +1,3 @@
+# tmuxp用
+# dependencies:
+#   - { role: python }

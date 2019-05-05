@@ -1,0 +1,9 @@
+- import_tasks: mac.yml
+  when: ansible_os_family == "Darwin"
+
+- name: Symlink dotfiels
+  file:
+    src: "{{ dotfiles_home }}/roles/visual-studio-code/files/Code"
+    dest: "{{dotfiles_user_home}}/.config/Code"
+    state: link
+  when: ansible_os_family == "Darwin"

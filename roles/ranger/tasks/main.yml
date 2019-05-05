@@ -1,0 +1,8 @@
+- import_tasks: mac.yml
+  when: ansible_os_family == "Darwin"
+
+- name: Symlink dotfiels
+  file:
+    src: "{{ dotfiles_home }}/roles/ranger/files/ranger"
+    dest: "{{dotfiles_user_home}}/.config/ranger"
+    state: link

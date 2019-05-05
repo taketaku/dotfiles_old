@@ -1,0 +1,2 @@
+- name: Install Ranger
+  homebrew: name=ranger state=present

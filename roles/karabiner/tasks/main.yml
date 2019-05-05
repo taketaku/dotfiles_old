@@ -1,0 +1,9 @@
+- import_tasks: mac.yml
+  when: ansible_os_family == "Darwin"
+
+- name: Symlink Karabiner Settings
+  file:
+    src: "{{ dotfiles_home }}/roles/karabiner/files/karabiner"
+    dest: "{{dotfiles_user_home}}/.config/karabiner"
+    state: link
+  when: ansible_os_family == "Darwin"

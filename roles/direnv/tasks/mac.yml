@@ -1,0 +1,2 @@
+- name: Install direnv
+  homebrew: name=direnv state=present

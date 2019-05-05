@@ -1,0 +1,4 @@
+# see: https://github.com/riywo/anyenv/blob/master/README.md#usage
+install_env:
+  - pyenv
+  - rbenv

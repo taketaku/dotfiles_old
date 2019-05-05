@@ -1,0 +1,23 @@
+# Installation
+- import_tasks: debian.yml
+  when: ansible_os_family == "Debian"
+- import_tasks: mac.yml
+  when: ansible_os_family == "Darwin"
+
+# Configuration
+- name: Check if Neo Vim Settings exists
+  stat: path="{{dotfiles_user_home}}/.config/nvim"
+  register: neovim_settings_stat
+  failed_when: False
+
+- name: Backup
+  command: mv ~/.config/nvim ~/.config/nvim.bak
+  args:
+    creates: "{{dotfiles_user_home}}/.config/nvim.bak"
+  when: neovim_settings_stat.stat.exists
+
+- name: Symlink Neo Vim Settings
+  file:
+    src: "{{ dotfiles_home }}/roles/neovim/files/nvim"
+    dest: "{{dotfiles_user_home}}/.config/nvim"
+    state: link

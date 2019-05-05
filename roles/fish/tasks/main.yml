@@ -1,0 +1,9 @@
+- name: Symlink dotfiels
+  file:
+    src: "{{ dotfiles_home }}/roles/fish/files/fish"
+    dest: "{{dotfiles_user_home}}/.config/fish"
+    state: link
+  when: ansible_os_family == "Darwin"
+
+- import_tasks: mac.yml
+  when: ansible_os_family == "Darwin"

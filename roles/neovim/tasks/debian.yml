@@ -1,0 +1,7 @@
+- name: Install Neo Vim with apt
+  apt: name=neovim state=present
+  become_method: sudo
+
+- name: Install ctags
+  apt: name=neovim state=present
+  become_method: sudo

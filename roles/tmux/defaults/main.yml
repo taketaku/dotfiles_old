@@ -1,0 +1,3 @@
+# tmuxを有効にする場合はoff
+tmux_install_tmuxp: no
+

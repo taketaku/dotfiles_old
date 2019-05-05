@@ -1,0 +1,13 @@
+- name: Install Karabiner
+  homebrew_cask: name=karabiner-elements state=present
+
+- name: Check if Karabiner Settings exists
+  stat: path="{{dotfiles_user_home}}/.config/karabiner"
+  register: karabiner_settings_stat
+  failed_when: False
+
+- name: Backup
+  command: mv ~/.config/karabiner ~/.config/karabiner.bak
+  args:
+    creates: "{{dotfiles_user_home}}/.config/karabiner.bak"
+  when: karabiner_settings_stat.stat.exists

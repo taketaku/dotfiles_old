@@ -1,0 +1,58 @@
+- set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
+
+- name: Install anyenv
+  git: repo={{ item.repo }} dest={{ item.dest }} update=no
+  with_items:
+    - { repo: 'https://github.com/anyenv/anyenv',          dest: '~/.anyenv' }
+    - { repo: 'https://github.com/znz/anyenv-update.git', dest: '~/.anyenv/plugins/anyenv-update' }
+    - { repo: 'https://github.com/znz/anyenv-git.git',    dest: '~/.anyenv/plugins/anyenv-git' }
+
+- name: Update anyenv
+  shell: |
+      eval "$(anyenv init -)"
+      anyenv update
+      rm -f /tmp/anyenv-updated-*
+      touch /tmp/anyenv-updated-{{ date }}
+  args:
+      executable: /bin/bash
+      creates: /tmp/anyenv-updated-{{ date }}
+
+# - name: Check if anyenv is intialized
+#   stat: path="~/.anyenv/anyenv-install"
+#   register: anyenv_stat
+
+# - name: anyenv install intialize
+#   shell: ~/.anyenv/bin/anyenv init
+#   args:
+#     executable: /bin/bash
+#   when: not anyenv_stat.stat.exists
+
+# - name: eval anyenv environment
+#   shell: >
+#     bash -lc "anyenv install {{ item }}"
+#     creates=~/.anyenv/envs/{{ item }}
+#   args:
+#     executable: /bin/bash
+#   environment:
+#     PATH: "~/.anyenv/bin:{{ lookup('env', 'PATH') }}"
+#   with_items:
+#     - rbenv
+#     - nodenv
+#     - pyenv
+
+- name: Install envs
+  shell: |
+    eval "$(anyenv init -)"
+    anyenv install {{ item.env }}
+    eval "$(anyenv init -)"
+    {{ item.env }} install {{ item.version  }}
+    {{ item.env }} rehash
+  args:
+    executable: /bin/bash
+    creates: ~/.anyenv/envs/{{ item.env }}/versions/{{ item.version }}
+  with_items:
+    - { env: 'rbenv',  version: '2.6.3' }
+    - { env: 'nodenv',  version: '12.0.0' }
+    - { env: 'goenv',  version: '1.12.4' }
+    - { env: 'pyenv',  version: '3.7.3'  }
+    - { env: 'phpenv', version: '7.3.4' }
