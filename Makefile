@@ -1,13 +1,9 @@
-first-setting-for-mac:
-	homebrew-install
-	ansible-install
-	dotconfig
-	ansible-roles
+first-setting-for-mac: homebrew ansible-install dotconfig ansible-roles
 
-homebrew-install:
+.PHONY: homebrew
+homebrew:
 ifeq ($(shell type brew 2> /dev/null),)
-	/usr/bin/ruby -e \
-	"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
 endif
 
 ansible-install:

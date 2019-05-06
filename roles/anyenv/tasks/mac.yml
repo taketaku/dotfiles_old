@@ -17,15 +17,21 @@
       executable: /bin/bash
       creates: /tmp/anyenv-updated-{{ date }}
 
-# - name: Check if anyenv is intialized
-#   stat: path="~/.anyenv/anyenv-install"
-#   register: anyenv_stat
 
-# - name: anyenv install intialize
-#   shell: ~/.anyenv/bin/anyenv init
-#   args:
-#     executable: /bin/bash
-#   when: not anyenv_stat.stat.exists
+- name: Check if anyenv exists
+  stat: path="~/.config/anyenv"
+  register: anyenv_stat
+
+- name: set .config/anyenv dir
+  shell: |
+    mkdir ~/.config/anyenv
+  when: not anyenv_stat.stat.exists
+
+- name: Symlink anyenv-install
+  file:
+    src: "{{ dotfiles_home }}/roles/anyenv/files/anyenv/anyenv-install"
+    dest: "{{dotfiles_user_home}}/.config/anyenv/anyenv-install"
+    state: link
 
 # - name: eval anyenv environment
 #   shell: >
@@ -48,7 +54,7 @@
     {{ item.env }} install {{ item.version  }}
     {{ item.env }} rehash
   args:
-    executable: /bin/bash
+    executable: /bin/fish
     creates: ~/.anyenv/envs/{{ item.env }}/versions/{{ item.version }}
   with_items:
     - { env: 'rbenv',  version: '2.6.3' }

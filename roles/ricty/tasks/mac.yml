@@ -3,6 +3,7 @@
 - name: Install ricty
   shell: |
     brew install fontforge
+    brew tap sanemat/font
     brew install ricty --with-powerline
 - name: Copy Ricty fonts to ~/Library/Fonts
   shell: |

@@ -6,17 +6,20 @@ based:
 macOS & Ubuntu
 
 ## はじめにやること(macOS)
-#### 1.
+#### clone
 > ホームティレクトリ下にdotfilesをclone
-#### 2.
+#### 設定値
 >  `group_vars / local`の以下の変数を更新する
-#### 3.
+#### Run
 > $ make first-setting-for-mac
-#### 4.
+#### Iterm設定
 > iterm2
 forMac/ 以下の設定
+> Iterm2にフォントを当てる
+iTerm2 > Preferences > Profiles > Text > Font
+- Ricty for powerline
 
-#### 5. 半角スペース(macOS Mojave)
+#### 半角スペース(macOS Mojave)
 ```
 Space = 半角スペース (通常は、全角スペース)
 Shift + Space = 全角スペース (通常は、半角スペース)
@@ -30,25 +33,11 @@ Shift + Space = 全角スペース (通常は、半角スペース)
 > $ sudo vim "/System/Library/Input Methods/JapaneseIM.app/Contents/PlugIns/JapaneseIM.appex/Contents/Resources/KeySetting_Default.plist"
 6. 設定ファイルを編集する
 以下のように修正する
-```
-<key>&apos; &apos;</key>
-<dict>
-	<key>command</key>
-	<string>direct_input</string>
-	<key>character</key>
-	<string> </string>
-</dict>
-<key>shift+&apos; &apos;</key>
-<dict>
-	<key>command</key>
-	<string>direct_input</string>
-	<key>character</key>
-	<string>　</string>
-</dict>
-```
+https://qiita.com/kotashiratsuka/items/72df6dae6333fe7f663e
 7. Command + R を押しながら Mac を起動するリカバリモード
 8. ユーティリティ > ターミナル
 9. csrutil enable
+
 
 ## TODO
 - Ubuntuの設定

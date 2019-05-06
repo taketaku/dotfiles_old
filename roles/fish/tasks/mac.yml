@@ -31,6 +31,14 @@
     - {url: "https://git.io/fisherman", dest: "{{ dotfiles_home }}/roles/fish/files/fish/functions/fisher.fish"}
     - {url: "https://git.io/snippet", dest: "{{ dotfiles_home }}/roles/fish/files/fish/config.fish"}
 
+- name: install fisherman plugin
+  shell: |
+    fisher {{ item }}
+  args:
+    executable: /bin/fish
+  with_items:
+    - oh-my-fish/theme-bobthefish
+
 # Bass makes it easy to use utilities written for Bash in fish shell.
 - name: install bass
   command: fish -c 'fisher eds/bass paths'

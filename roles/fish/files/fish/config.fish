@@ -8,12 +8,8 @@ ulimit -n 1024
 
 # Anyenv settings {{{
 if [ -d $HOME/.anyenv ]
-  set -x PATH $PATH $HOME/.anyenv/bin
-  bass 'eval "$(anyenv init - bash)"'
-  if [ ! -f $HOME/.anyenv/init.fish ]
-    anyenv init - > $HOME/.anyenv/init.fish
-  end
-  source $HOME/.anyenv/init.fish
+  set PATH $HOME/bin $HOME/.anyenv/bin $PATH
+  anyenv init - | source
 end
 # }}}
 
