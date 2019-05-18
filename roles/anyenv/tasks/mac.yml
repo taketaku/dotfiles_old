@@ -58,7 +58,7 @@
     creates: ~/.anyenv/envs/{{ item.env }}/versions/{{ item.version }}
   with_items:
     - { env: 'rbenv',  version: '2.6.3' }
-    - { env: 'nodenv',  version: '12.0.0' }
+    - { env: 'nodenv',  version: '12.2.0' }
     - { env: 'goenv',  version: '1.12.4' }
     - { env: 'pyenv',  version: '3.7.3'  }
     - { env: 'phpenv', version: '7.3.4' }
