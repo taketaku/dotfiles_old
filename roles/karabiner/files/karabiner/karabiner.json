@@ -78,6 +78,21 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "ESCを押したら強制的にIMEをオフにする",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "escape"
+                                },
+                                "to": [
+                                    { "key_code": "escape" },
+                                    { "key_code": "japanese_eisuu" }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
